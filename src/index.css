@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: #FFF9F5;
+    color: #2D1810;
+  }
+}
+
+.font-script-calligraphy {
+  font-family: 'Alex Brush', cursive;
+}
+
+.font-serif-cormorant {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-sans-clean {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+/* Warm Parchment / Linen texture */
+.bg-parchment {
+  background-color: #FFFDF9;
+  background-image: radial-gradient(#F5EBE1 0.75px, transparent 0.75px), radial-gradient(#F5EBE1 0.75px, #FFFDF9 0.75px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+}
+
+/* Photorealistic Candle Flame Physics & Glow */
+@keyframes flameFlicker {
+  0%, 100% {
+    transform: scale(1, 1) rotate(0deg) skewX(0deg);
+    filter: drop-shadow(0 0 10px rgba(255, 170, 50, 0.95)) drop-shadow(0 0 25px rgba(255, 100, 20, 0.75)) drop-shadow(0 -5px 15px rgba(255, 230, 150, 0.9));
+  }
+  15% {
+    transform: scale(0.96, 1.05) rotate(2deg) skewX(2deg);
+    filter: drop-shadow(0 0 12px rgba(255, 180, 60, 1)) drop-shadow(0 0 30px rgba(255, 110, 30, 0.8));
+  }
+  35% {
+    transform: scale(1.04, 0.95) rotate(-2.5deg) skewX(-2deg);
+    filter: drop-shadow(0 0 9px rgba(255, 150, 40, 0.9)) drop-shadow(0 0 22px rgba(255, 90, 20, 0.7));
+  }
+  55% {
+    transform: scale(0.98, 1.03) rotate(1.5deg) skewX(1deg);
+    filter: drop-shadow(0 0 14px rgba(255, 190, 70, 0.95)) drop-shadow(0 0 28px rgba(255, 120, 35, 0.75));
+  }
+  75% {
+    transform: scale(1.02, 0.97) rotate(-1deg) skewX(-1.5deg);
+    filter: drop-shadow(0 0 10px rgba(255, 160, 45, 0.92)) drop-shadow(0 0 24px rgba(255, 95, 25, 0.7));
+  }
+}
+
+.animate-realistic-flame {
+  animation: flameFlicker 1.4s infinite ease-in-out;
+  transform-origin: 50% 90%;
+}
+
+/* Blowing Out Gust / Wind animation */
+@keyframes flameBlownOut {
+  0% {
+    transform: scale(1, 1) rotate(0deg);
+    opacity: 1;
+  }
+  30% {
+    transform: scale(1.3, 0.4) rotate(35deg) translateX(12px);
+    opacity: 0.8;
+    filter: drop-shadow(0 0 15px rgba(255, 100, 20, 0.9));
+  }
+  70% {
+    transform: scale(0.6, 0.2) rotate(60deg) translateX(24px);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(0, 0) rotate(80deg) translateX(35px);
+    opacity: 0;
+  }
+}
+
+.animate-flame-blown {
+  animation: flameBlownOut 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  transform-origin: 50% 90%;
+}
+
+/* Realistic Wisps of Smoke rising after extinguish */
+@keyframes smokeWispRise {
+  0% {
+    transform: translateY(0px) scale(0.4) rotate(0deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.85;
+    transform: translateY(-8px) scale(0.8) rotate(10deg);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateY(-24px) scale(1.4) rotate(-15deg) translateX(6px);
+  }
+  80% {
+    opacity: 0.3;
+    transform: translateY(-44px) scale(2.2) rotate(20deg) translateX(-8px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-65px) scale(3) rotate(-25deg) translateX(12px);
+  }
+}
+
+.animate-smoke-wisp {
+  animation: smokeWispRise 2.8s cubic-bezier(0.2, 0.7, 0.3, 1) forwards;
+}
+
+/* Ambient Candle Glow Pulsing */
+@keyframes warmHaloPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.65;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 0.9;
+  }
+}
+
+.animate-halo-pulse {
+  animation: warmHaloPulse 2.4s infinite ease-in-out;
+}
+
+/* Soft floating rose petal drift */
+@keyframes gentleSway {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+}
+
+.animate-gentle-sway {
+  animation: gentleSway 4.5s infinite ease-in-out;
+}
+
+/* Tactile micro-vibration and realistic slice separation keyframes */
+@keyframes cakeCutImpact {
+  0% { transform: scale(1); }
+  25% { transform: scale(0.985) translateY(1.5px); }
+  50% { transform: scale(1.008) translateY(-1px); }
+  75% { transform: scale(0.995); }
+  100% { transform: scale(1); }
+}
+
+.animate-cake-impact {
+  animation: cakeCutImpact 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Subtle, slow-drifting romantic hearts rising gently */
+@keyframes floatDriftingHeart {
+  0% {
+    transform: translateY(0) translateX(0) scale(0.7) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-55vh) translateX(25px) scale(1) rotate(12deg);
+    opacity: 0.75;
+  }
+  85% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-115vh) translateX(-20px) scale(1.15) rotate(-15deg);
+    opacity: 0;
+  }
+}
+
+.animate-float-heart {
+  animation-name: floatDriftingHeart;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
