@@ -24,7 +24,7 @@ export default function App() {
     const audio = birthdayAudioRef.current;
     if (!audio) return;
 
-    audio.volume = 0.75;
+    audio.volume = 0.95;
     audio.loop = true;
     audio.preload = 'auto';
 
